@@ -18,6 +18,9 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {useNewUrlParser: true},
     console.log(`mongodb connected.`);
 });
 
+const userRouter = require('./routes/userRouter');
+app.use('/api/user', userRouter);
+
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, ()=> console.log(`server running on port ${PORT}`))
